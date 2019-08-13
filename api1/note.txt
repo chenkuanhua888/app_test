@@ -1,0 +1,114 @@
+
+每个进程都有一个进程标识: pid(process id)
+
+查看端口是否被监听(被占用)
+netstat -ano | findstr 端口号
+
+
+
+----------------------------------------------------------------
+接口(api application programming interface)
+
+接口按照使用的网络协议:
+http协议的接口
+其他协议的(soap(web service), dubbo ... )
+
+
+
+http (HyperText Transfer Protocol)超文本传输协议
+
+        Request 请求
+Client ------------> Server
+        Response 响应
+Client <------------ Server
+
+
+
+数据包，报文
+
+http://127.0.0.1:80/test/cyo.html
+
+
+请求行
+GET /test/cyo.html HTTP/1.1
+
+请求header
+Host: 127.0.0.1
+Connection: keep-alive
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+
+
+
+请求方法:
+GET    /student/search?name=tom&age=22
+POST    /student/add
+PUT
+DELETE
+HEAD
+...
+
+
+状态行
+HTTP/1.1 200 OK
+
+
+响应的header
+Date: Thu, 01 Aug 2019 02:37:16 GMT
+Server: Apache/2.4.10 (Win32) OpenSSL/0.9.8zb PHP/5.3.29
+Last-Modified: Thu, 01 Aug 2019 02:34:19 GMT
+ETag: "12-58f05142aaa82"
+Accept-Ranges: bytes
+Content-Length: 18
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html
+
+
+状态码:
+200 - 请求成功
+301 - 资源（网页等）被永久转移到其它URL
+404 - 请求的资源（网页等）不存在
+500 - 内部服务器错误
+
+1**	信息，服务器收到请求，需要请求者继续执行操作
+2**	成功，操作被成功接收并处理
+3**	重定向，需要进一步的操作以完成请求
+4**	客户端错误，请求包含语法错误或无法完成请求
+5**	服务器错误，服务器在处理请求的过程中发生了错误
+
+----------------------------------------------------------------
+
+json
+
+安装Django框架
+pip install django==2.2
+
+启动系统
+python manage.py runserver
+
+
+----------------------------------------------------------------
+JSON 指的是 JavaScript 对象表示法（JavaScript Object Notation）
+JSON 是轻量级的文本数据交换格式
+JSON 独立于语言
+
+
+JSON 值可以是：
+
+数字（整数或浮点数）  3  3.14
+字符串（在双引号中）  "hello"
+逻辑值（true 或 false）
+数组（在方括号中） [3, 3.0, true, false, "hello"]
+对象（在花括号中） {"name":"jack",  "age":22}
+null (空值)
+
+
+post 提交数据的格式
+name=tom&age=20             键值对格式
+{"name":"tom", "age":20}    json格式
